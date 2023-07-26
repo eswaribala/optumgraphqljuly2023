@@ -15,6 +15,5 @@ enum CompanyType{
 extend type Query{
     findAllCorporates:[Corporate]
     findCorporateById(customerId:Long):Corporate
-    findCorporateByContactNo(contactNo:Long):[Corporate]
     findCorporateByFirstName(firstName:String):[Corporate]
 }
