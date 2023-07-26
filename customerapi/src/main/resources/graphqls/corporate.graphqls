@@ -1,0 +1,20 @@
+type Corporate implements Customer{
+    customerId: Long
+    name: FullName
+    email: String
+    password: String
+    contactNo: Long
+    companyType:CompanyType
+
+}
+
+enum CompanyType{
+    PUBLIC,PRIVATE,NGO
+}
+
+extend type Query{
+    findAllCorporates:[Corporate]
+    findCorporateById(customerId:Long):Corporate
+    findCorporateByContactNo(contactNo:Long):[Corporate]
+    findCorporateByFirstName(firstName:String):[Corporate]
+}
