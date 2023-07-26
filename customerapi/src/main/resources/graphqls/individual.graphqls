@@ -1,7 +1,8 @@
 schema {
     query: Query
-
+    mutation:  Mutation
 }
+
 scalar  Date
 scalar Long
 interface Customer{
@@ -30,6 +31,22 @@ type Individual implements Customer{
 
 }
 
+input IndividualInput{
+    customerId: Long
+    name: FullNameInput
+    email: String
+    password: String
+    contactNo: Long
+    gender:Gender,
+    dob: Date
+}
+
+input  FullNameInput{
+    firstName: String
+    lastName: String
+    middleName: String
+}
+
 enum Gender{
     MALE,FEMALE,TRANSGENDER
 }
@@ -39,4 +56,13 @@ type Query{
     findIndividualById(customerId:Long):Individual
     findIndividualByContactNo(contactNo:Long):[Individual]
     findIndividualByFirstName(firstName:String):[Individual]
+}
+
+
+type Mutation {
+
+    addIndividual(individualInput:IndividualInput):Individual
+    updateIndividual(customerId:Long, email:String): Individual
+    deleteIndividual(customerId:Long):Boolean
+
 }
