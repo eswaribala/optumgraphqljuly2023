@@ -17,3 +17,23 @@ extend type Query{
     findCorporateById(customerId:Long):Corporate
     findCorporateByFirstName(firstName:String):[Corporate]
 }
+
+
+extend type Mutation {
+
+    addCorporate(corporateInput:CorporateInput):Corporate
+    updateCorporate(customerId:Long, email:String): Corporate
+    deleteCorporate(customerId:Long):Boolean
+
+}
+
+input CorporateInput {
+    customerId: Long
+    name: FullNameInput
+    email: String
+    password: String
+    contactNo: Long
+    companyType:CompanyType
+
+}
+s

@@ -13,3 +13,28 @@ extend type Query{
     findAddressByCustomerId(customerId:Long):[Address]
 
 }
+
+extend type Mutation {
+
+    addAddress(addressInput:AddressInput):Address
+    updateAddress(customerId:Long, addressInput:AddressInput): Address
+    deleteAddress(addressId:Long):Boolean
+
+}
+
+input AddressInput {
+    addressId:Long
+    doorNo: String
+    streetName: String
+    city:String
+    pincode: Long
+    customer: CustomerInput
+}
+
+input CustomerInput{
+    customerId: Long
+    name: FullNameInput
+    email: String
+    password: String
+    contactNo: Long
+}
