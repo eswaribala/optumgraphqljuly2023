@@ -57,10 +57,14 @@ public class AddressService {
 
     //update
 
-    public Address updateAddress(Address address){
-
+    public Address updateAddress(Address address,long customerId){
+        Customer customer=this.customerRepo.findById(customerId).orElse(null);
+        if(customer!=null){
+            address.setCustomer(customer);
             return this.addressRepo.save(address);
-
+        }
+        else
+            return null;
     }
 
 
