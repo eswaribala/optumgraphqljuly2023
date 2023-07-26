@@ -1,0 +1,42 @@
+schema {
+    query: Query
+   
+}
+scalar  Date
+scalar Long
+interface Customer{
+    customerId: Long
+    name: FullName
+    email: String
+    password: String
+    contactNo: Long
+}
+
+
+type FullName{
+    firstName: String
+    lastName: String
+    middleName: String
+}
+
+type Individual implements Customer{
+    customerId: Long
+    name: FullName
+    email: String
+    password: String
+    contactNo: Long
+    gender:Gender,
+    dob: Date
+
+}
+
+enum Gender{
+    MALE,FEMALE,TRANSGENDER
+}
+
+type Query{
+    findAllIndividuals:[Individual]
+    findIndividualById(customerId:Long):Individual
+    findIndividualByContactNo(contactNo:Long):[Individual]
+    findIndividualByFirstName(firstName:String):[Individual]
+}
