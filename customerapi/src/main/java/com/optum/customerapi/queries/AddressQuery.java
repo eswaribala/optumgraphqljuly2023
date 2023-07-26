@@ -17,7 +17,7 @@ public class AddressQuery implements GraphQLQueryResolver {
     public List<Address>  findAllAddresses(){
         return this.addressService.getAllAddresss();
     }
-   public List<Address> findAddressById(long customerId){
+   public List<Address> findAddressByCustomerId(long customerId){
         return this.addressService.getAddressById(customerId);
    }
 
