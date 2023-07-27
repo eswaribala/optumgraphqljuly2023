@@ -16,7 +16,7 @@ extend type Query{
 
 extend type Mutation {
 
-    addAddress(addressInput:AddressInput):Address
+    addAddress(addressInput:AddressInput,customerId:Long):Address
     updateAddress(customerId:Long, addressInput:AddressInput): Address
     deleteAddress(addressId:Long):Boolean
 
