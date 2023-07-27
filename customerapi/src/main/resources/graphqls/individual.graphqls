@@ -56,6 +56,8 @@ type Query{
     findIndividualById(customerId:Long):Individual
     findIndividualByContactNo(contactNo:Long):[Individual]
     findIndividualByFirstName(firstName:String):[Individual]
+    findIndividualWithFilter(individualFilter:IndividualFilter):[Individual]
+
 }
 
 
@@ -65,4 +67,15 @@ type Mutation {
     updateIndividual(customerId:Long, email:String): Individual
     deleteIndividual(customerId:Long):Boolean
 
+}
+
+input IndividualFilter{
+    gender: FilterField
+}
+
+
+
+input FilterField{
+    operator: String
+    value: String
 }
