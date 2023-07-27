@@ -14,7 +14,7 @@ public class AddressMutation implements GraphQLMutationResolver {
     @Autowired
     private AddressService addressService;
 
-    public Address addAddress(AddressInput addressInput,long customerId){
+    public Address addIndividualAddress(AddressInput addressInput,long customerId){
 
         Address address=Address.builder()
                 .addressId(addressInput.getAddressId())
@@ -25,10 +25,11 @@ public class AddressMutation implements GraphQLMutationResolver {
 
                 .build();
 
-       return this.addressService.addAddress(address,customerId);
+       return this.addressService.addIndividualAddress(address,customerId);
 
     }
-    public Address updateAddress(long customerId,AddressInput addressInput){
+    public Address addCorporateAddress(AddressInput addressInput,long customerId){
+
         Address address=Address.builder()
                 .addressId(addressInput.getAddressId())
                 .city(addressInput.getCity())
@@ -38,7 +39,32 @@ public class AddressMutation implements GraphQLMutationResolver {
 
                 .build();
 
-        return this.addressService.updateAddress(address,customerId);
+        return this.addressService.addCorporateAddress(address,customerId);
+
+    }
+    public Address updateIndividualAddress(long customerId,AddressInput addressInput){
+        Address address=Address.builder()
+                .addressId(addressInput.getAddressId())
+                .city(addressInput.getCity())
+                .doorNo(addressInput.getDoorNo())
+                .streetName(addressInput.getStreetName())
+                .pincode(addressInput.getPincode())
+
+                .build();
+
+        return this.addressService.updateIndividualAddress(address,customerId);
+    }
+    public Address updateCorporateAddress(long customerId,AddressInput addressInput){
+        Address address=Address.builder()
+                .addressId(addressInput.getAddressId())
+                .city(addressInput.getCity())
+                .doorNo(addressInput.getDoorNo())
+                .streetName(addressInput.getStreetName())
+                .pincode(addressInput.getPincode())
+
+                .build();
+
+        return this.addressService.updateCorporateAddress(address,customerId);
     }
     public boolean deleteAddress(long addressId){
 

@@ -1,9 +1,11 @@
 package com.optum.customerapi.services;
 
 import com.optum.customerapi.models.Address;
+import com.optum.customerapi.models.Corporate;
 import com.optum.customerapi.models.Customer;
 import com.optum.customerapi.models.Individual;
 import com.optum.customerapi.repositories.AddressRepo;
+import com.optum.customerapi.repositories.CorporateRepo;
 import com.optum.customerapi.repositories.CustomerRepo;
 import com.optum.customerapi.repositories.IndividualRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +27,14 @@ public class AddressService {
     private IndividualRepo individualRepo;
 
     @Autowired
+    private CorporateRepo corporateRepo;
+
+    @Autowired
     private EntityManager entityManager;
 
     //insert
 
-    public Address addAddress(Address address,long customerId){
+    public Address addIndividualAddress(Address address,long customerId){
 
         Individual individual=this.individualRepo.findById(customerId).orElse(null);
         if(individual!=null){
@@ -42,6 +47,18 @@ public class AddressService {
 
     }
 
+    public Address addCorporateAddress(Address address,long customerId){
+
+        Corporate corporate =this.corporateRepo.findById(customerId).orElse(null);
+        if(corporate!=null){
+            address.setCorporate(corporate);
+            return this.addressRepo.save(address);
+        }
+        else
+            return null;
+
+
+    }
     //select all
 
     public List<Address> getAllAddresss(){
@@ -61,7 +78,7 @@ public class AddressService {
 
     //update
 
-    public Address updateAddress(Address address,long customerId){
+    public Address updateIndividualAddress(Address address,long customerId){
       Individual individual=this.individualRepo.findById(customerId).orElse(null);
         if(individual!=null){
             address.setIndividual(individual);
@@ -70,7 +87,15 @@ public class AddressService {
         else
             return null;
     }
-
+    public Address updateCorporateAddress(Address address,long customerId){
+        Corporate corporate =this.corporateRepo.findById(customerId).orElse(null);
+        if(corporate!=null){
+            address.setCorporate(corporate);
+            return this.addressRepo.save(address);
+        }
+        else
+            return null;
+    }
 
     //delete
     public boolean deleteAddress(long addressId){
