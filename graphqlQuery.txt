@@ -21,3 +21,20 @@ query($customerId:Long){
     
   }
 }
+=============================================
+query{
+  findIndividualWithFilter(individualFilter:{
+    
+    gender:{
+      operator:"equal",
+      value:"FEMALE"
+    }
+  }){
+    name{
+      firstName
+    }
+  }
+  
+}
+=======================================================
+
