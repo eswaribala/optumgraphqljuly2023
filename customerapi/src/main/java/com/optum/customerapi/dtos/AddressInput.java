@@ -16,5 +16,5 @@ public class AddressInput {
     private String streetName;
     private String city;
     private long pincode;
-    private Customer customer;
+   // private Customer customer;
 }
