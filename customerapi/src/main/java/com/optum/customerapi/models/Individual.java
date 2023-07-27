@@ -18,7 +18,7 @@ import java.time.LocalDate;
 @SuperBuilder
 @EqualsAndHashCode(callSuper = false)
 public class Individual extends Customer{
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     @Column(name="Gender")
     private Gender gender;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)

@@ -16,7 +16,7 @@ import javax.persistence.*;
 @SuperBuilder
 @EqualsAndHashCode(callSuper = false)
 public class Corporate extends Customer{
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     @Column(name="Company_Type")
     private CompanyType companyType;
 }
