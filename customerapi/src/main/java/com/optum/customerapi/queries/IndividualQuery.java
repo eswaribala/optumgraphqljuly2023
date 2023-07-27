@@ -1,6 +1,7 @@
 package com.optum.customerapi.queries;
 
 import com.optum.customerapi.dtos.FilterField;
+import com.optum.customerapi.dtos.GenderFilterField;
 import com.optum.customerapi.dtos.IndividualFilter;
 import com.optum.customerapi.models.Individual;
 import com.optum.customerapi.repositories.IndividualRepo;
@@ -43,6 +44,8 @@ public class IndividualQuery implements GraphQLQueryResolver {
         if (individualFilter.getEmail() != null)
             spec = byEmail(individualFilter.getEmail());
 
+        if (individualFilter.getGender()!= null)
+            spec = byGender(individualFilter.getGender());
         if (spec != null)
             return individualRepo.findAll(spec);
         else
@@ -56,5 +59,10 @@ public class IndividualQuery implements GraphQLQueryResolver {
 
     private Specification<Individual> byEmail(FilterField filterField) {
         return (Specification<Individual>) (root, query, builder) -> filterField.generateCriteria(builder, root.get("email"));
+    }
+
+
+    private Specification<Individual> byGender(GenderFilterField filterField) {
+        return (Specification<Individual>) (root, query, builder) -> filterField.generateCriteria(builder, root.get("gender"));
     }
 }

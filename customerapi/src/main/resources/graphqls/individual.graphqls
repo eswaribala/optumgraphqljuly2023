@@ -72,6 +72,7 @@ type Mutation {
 input IndividualFilter{
     customerId: FilterField
     email: FilterField
+    gender:GenderFilterField
 }
 
 
@@ -79,4 +80,9 @@ input IndividualFilter{
 input FilterField{
     operator: String
     value: String
+}
+
+input GenderFilterField{
+    operator: String
+    value: Gender
 }

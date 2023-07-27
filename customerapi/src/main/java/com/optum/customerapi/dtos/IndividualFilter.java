@@ -11,4 +11,5 @@ public class IndividualFilter {
 
     private FilterField customerId;
     private FilterField email;
+    private GenderFilterField gender;
 }
