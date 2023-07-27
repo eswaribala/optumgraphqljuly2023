@@ -20,6 +20,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="Customer_Id")
+    
     private long customerId;
     @Embedded
     private FullName name;
