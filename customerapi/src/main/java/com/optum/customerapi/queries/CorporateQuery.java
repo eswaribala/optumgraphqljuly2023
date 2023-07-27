@@ -34,7 +34,7 @@ public class CorporateQuery implements GraphQLQueryResolver {
     public List<Corporate> findCorporateByFirstName(String firstName){
         return this.corporateService.getCorporateByFirstName(firstName);
     }
-    public List<Corporate> findIndividualWithFilter(CorporateFilter corporateFilter){
+    public List<Corporate> findCorporateWithFilter(CorporateFilter corporateFilter){
 
         Specification<Corporate> spec = null;
         if (corporateFilter.getCompanyType() != null)
