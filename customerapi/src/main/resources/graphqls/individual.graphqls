@@ -5,14 +5,15 @@ schema {
 
 scalar  Date
 scalar Long
-interface Customer{
-    customerId: Long
-    name: FullName
-    email: String
-    password: String
-    contactNo: Long
-}
+#interface Customer{
+#    customerId: Long
+#    name: FullName
+#    email: String
+#    password: String
+#    contactNo: Long
+#}
 
+union Customer=Individual|Corporate
 
 type FullName{
     firstName: String
@@ -20,7 +21,7 @@ type FullName{
     middleName: String
 }
 
-type Individual implements Customer{
+type Individual {
     customerId: Long
     name: FullName
     email: String
