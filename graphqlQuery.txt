@@ -25,14 +25,19 @@ query($customerId:Long){
 query{
   findIndividualWithFilter(individualFilter:{
     
-    gender:{
-      operator:"equal",
-      value:"FEMALE"
+  
+    customerId:{
+      operator:"gt",
+      value:"3"
+    },
+    email:{
+      operator:"eq",
+      value:"Parameswaribala@gmail.com"
     }
   }){
-    name{
-      firstName
-    }
+   name{
+    firstName
+  }
   }
   
 }
