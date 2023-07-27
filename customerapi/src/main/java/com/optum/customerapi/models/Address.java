@@ -28,6 +28,6 @@ public class Address {
     private long pincode;
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     @JoinColumn(foreignKey = @ForeignKey(name = "Customer_Id"), name = "Customer_Id")
-    private Customer customer;
+    private Individual individual;
 
 }

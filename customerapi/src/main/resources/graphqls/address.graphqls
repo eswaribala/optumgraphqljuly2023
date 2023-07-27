@@ -4,7 +4,7 @@ type Address {
     streetName: String
     city:String
     pincode: Long
-    customer: Customer
+    individual: Individual
 }
 
 
@@ -28,13 +28,6 @@ input AddressInput {
     streetName: String
     city:String
     pincode: Long
-    customer: CustomerInput
+    customer: IndividualInput
 }
 
-input CustomerInput{
-    customerId: Long
-    name: FullNameInput
-    email: String
-    password: String
-    contactNo: Long
-}

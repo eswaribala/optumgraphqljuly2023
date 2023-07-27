@@ -2,8 +2,10 @@ package com.optum.customerapi.services;
 
 import com.optum.customerapi.models.Address;
 import com.optum.customerapi.models.Customer;
+import com.optum.customerapi.models.Individual;
 import com.optum.customerapi.repositories.AddressRepo;
 import com.optum.customerapi.repositories.CustomerRepo;
+import com.optum.customerapi.repositories.IndividualRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +22,7 @@ public class AddressService {
     @Autowired
     private AddressRepo addressRepo;
     @Autowired
-    private CustomerRepo customerRepo;
+    private IndividualRepo individualRepo;
 
     @Autowired
     private EntityManager entityManager;
@@ -29,9 +31,9 @@ public class AddressService {
 
     public Address addAddress(Address address,long customerId){
 
-        Customer customer=this.customerRepo.findById(customerId).orElse(null);
-        if(customer!=null){
-            address.setCustomer(customer);
+        Individual individual =this.individualRepo.findById(customerId).orElse(null);
+        if(individual!=null){
+            address.setIndividual(individual);
             return this.addressRepo.save(address);
         }
         else
@@ -58,9 +60,9 @@ public class AddressService {
     //update
 
     public Address updateAddress(Address address,long customerId){
-        Customer customer=this.customerRepo.findById(customerId).orElse(null);
-        if(customer!=null){
-            address.setCustomer(customer);
+        Individual individual=this.individualRepo.findById(customerId).orElse(null);
+        if(individual!=null){
+            address.setIndividual(individual);
             return this.addressRepo.save(address);
         }
         else

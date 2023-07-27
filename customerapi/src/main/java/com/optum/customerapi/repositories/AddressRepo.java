@@ -10,6 +10,6 @@ import java.util.List;
 
 public interface AddressRepo extends JpaRepository<Address,Long> {
 
-    @Query("Select a from Address a where a.customer.customerId=:customerId")
+    @Query("Select a from Address a where a.individual.customerId=:customerId")
     public List<Address> findByCustomerId(@Param("customerId") long customerId);
 }
