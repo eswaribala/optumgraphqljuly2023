@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CorporateInput {
-    private long customerId;
+
     private FullName name;
 
     private long contactNo;

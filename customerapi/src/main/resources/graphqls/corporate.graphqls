@@ -28,7 +28,6 @@ extend type Mutation {
 }
 
 input CorporateInput {
-    customerId: Long
     name: FullNameInput
     email: String
     password: String
@@ -36,4 +35,3 @@ input CorporateInput {
     companyType:CompanyType
 
 }
-s

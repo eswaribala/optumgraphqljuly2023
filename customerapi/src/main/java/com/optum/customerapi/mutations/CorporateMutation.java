@@ -17,7 +17,7 @@ public class CorporateMutation implements GraphQLMutationResolver {
     public Corporate addCorporate(CorporateInput corporateInput){
 
         Corporate corporate=Corporate.builder()
-                .customerId(corporateInput.getCustomerId())
+                .customerId(0)
                 .name(FullName.builder()
                         .firstName(corporateInput.getName().getFirstName())
                         .lastName(corporateInput.getName().getLastName())

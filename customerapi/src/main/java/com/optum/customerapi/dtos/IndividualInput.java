@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class IndividualInput {
-   private long customerId;
+
    private FullName name;
 
    private long contactNo;

@@ -17,7 +17,7 @@ public class IndividualMutation implements GraphQLMutationResolver {
     public Individual addIndividual(IndividualInput individualInput){
 
         Individual individual=Individual.builder()
-                .customerId(individualInput.getCustomerId())
+                .customerId(0)
                 .name(FullName.builder()
                         .firstName(individualInput.getName().getFirstName())
                         .lastName(individualInput.getName().getLastName())

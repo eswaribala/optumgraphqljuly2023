@@ -32,7 +32,6 @@ type Individual implements Customer{
 }
 
 input IndividualInput{
-    customerId: Long
     name: FullNameInput
     email: String
     password: String
