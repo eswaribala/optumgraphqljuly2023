@@ -39,7 +39,9 @@ public class IndividualQuery implements GraphQLQueryResolver {
 
         Specification<Individual> spec = null;
         if (individualFilter.getCustomerId() != null)
-            spec = byGender(individualFilter.getCustomerId());
+            spec = byCustomerId(individualFilter.getCustomerId());
+        if (individualFilter.getEmail() != null)
+            spec = byEmail(individualFilter.getEmail());
 
         if (spec != null)
             return individualRepo.findAll(spec);
@@ -48,8 +50,11 @@ public class IndividualQuery implements GraphQLQueryResolver {
     }
 
 
-    private Specification<Individual> byGender(FilterField filterField) {
+    private Specification<Individual> byCustomerId(FilterField filterField) {
         return (Specification<Individual>) (root, query, builder) -> filterField.generateCriteria(builder, root.get("customerId"));
     }
 
+    private Specification<Individual> byEmail(FilterField filterField) {
+        return (Specification<Individual>) (root, query, builder) -> filterField.generateCriteria(builder, root.get("email"));
+    }
 }

@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 public class IndividualFilter {
 
     private FilterField customerId;
+    private FilterField email;
 }

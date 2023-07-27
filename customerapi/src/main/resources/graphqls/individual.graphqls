@@ -71,6 +71,7 @@ type Mutation {
 
 input IndividualFilter{
     customerId: FilterField
+    email: FilterField
 }
 
 
