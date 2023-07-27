@@ -10,5 +10,5 @@ import org.springframework.beans.factory.annotation.Autowired;
 @NoArgsConstructor
 public class CorporateFilter {
 
-    private FilterField companyType;
+    private FilterField customerId;
 }

@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class IndividualFilter {
 
-    private FilterField gender;
+    private FilterField customerId;
 }

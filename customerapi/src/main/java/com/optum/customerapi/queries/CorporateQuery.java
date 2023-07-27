@@ -37,8 +37,8 @@ public class CorporateQuery implements GraphQLQueryResolver {
     public List<Corporate> findCorporateWithFilter(CorporateFilter corporateFilter){
 
         Specification<Corporate> spec = null;
-        if (corporateFilter.getCompanyType() != null)
-            spec = byCompany(corporateFilter.getCompanyType());
+        if (corporateFilter.getCustomerId() != null)
+            spec = byCompany(corporateFilter.getCustomerId());
 
         if (spec != null)
             return corporateRepo.findAll(spec);
@@ -48,6 +48,6 @@ public class CorporateQuery implements GraphQLQueryResolver {
 
 
     private Specification<Corporate> byCompany(FilterField filterField) {
-        return (Specification<Corporate>) (root, query, builder) -> filterField.generateCriteria(builder, root.get("companyType"));
+        return (Specification<Corporate>) (root, query, builder) -> filterField.generateCriteria(builder, root.get("customerId"));
     }
 }
