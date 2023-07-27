@@ -17,10 +17,13 @@ public class AddressQuery implements GraphQLQueryResolver {
     public List<Address>  findAllAddresses(){
         return this.addressService.getAllAddresss();
     }
-   public List<Address> findAddressByCustomerId(long customerId){
-        return this.addressService.getAddressById(customerId);
+   public List<Address>   findAddressByIndividualCustomerId(long customerId){
+        return this.addressService.getAddressByIndividualCustomerId(customerId);
    }
 
+    public List<Address>   findAddressByCorporateCustomerId(long customerId){
+        return this.addressService.getAddressByCorporateCustomerId(customerId);
+    }
 
 
 }

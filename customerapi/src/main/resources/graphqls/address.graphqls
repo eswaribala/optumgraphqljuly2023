@@ -5,13 +5,14 @@ type Address {
     city:String
     pincode: Long
     individual: Individual
+    corporate: Corporate
 }
 
 
 extend type Query{
     findAllAddresses:[Address]
-    findAddressByCustomerId(customerId:Long):[Address]
-
+    findAddressByIndividualCustomerId(customerId:Long):[Address]
+    findAddressByCorporateCustomerId(customerId:Long):[Address]
 }
 
 extend type Mutation {

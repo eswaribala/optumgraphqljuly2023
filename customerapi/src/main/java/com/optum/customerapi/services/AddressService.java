@@ -50,11 +50,13 @@ public class AddressService {
 
     //select by id
 
-    public List<Address> getAddressById(long customerId){
-        return this.addressRepo.findByCustomerId(customerId);
+    public List<Address> getAddressByIndividualCustomerId(long customerId){
+        return this.addressRepo.findByIndividualCustomerId(customerId);
     }
 
-
+    public List<Address> getAddressByCorporateCustomerId(long customerId){
+        return this.addressRepo.findByCorporateCustomerId(customerId);
+    }
 
 
     //update

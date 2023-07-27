@@ -27,7 +27,9 @@ public class Address {
     @Column(name="Pincode")
     private long pincode;
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
-    @JoinColumn(foreignKey = @ForeignKey(name = "Customer_Id"), name = "Customer_Id")
+    @JoinColumn(foreignKey = @ForeignKey(name = "Ind_Customer_Id"), name = "Ind_Customer_Id")
     private Individual individual;
-
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
+    @JoinColumn(foreignKey = @ForeignKey(name = "Corp_Customer_Id"), name = "Corp_Customer_Id")
+    private Corporate corporate;
 }
