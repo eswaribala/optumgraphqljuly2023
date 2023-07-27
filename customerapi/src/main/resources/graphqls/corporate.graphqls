@@ -16,6 +16,7 @@ extend type Query{
     findAllCorporates:[Corporate]
     findCorporateById(customerId:Long):Corporate
     findCorporateByFirstName(firstName:String):[Corporate]
+    findCorporateWithFilter(corporateFilter:CorporateFilter):[Corporate]
 }
 
 
@@ -34,4 +35,8 @@ input CorporateInput {
     contactNo: Long
     companyType:CompanyType
 
+}
+
+input CorporateFilter{
+    companyType:FilterField
 }
