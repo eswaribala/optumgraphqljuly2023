@@ -1,0 +1,23 @@
+query($customerId:Long){
+  searchCustomer(customerId:$customerId){
+    
+    __typename
+    
+     ...on Individual{
+      name{
+        firstName
+      },
+      dob
+      
+     
+    }
+    
+    ...on Corporate{
+      name{
+        firstName
+      },
+      companyType
+    }
+    
+  }
+}
