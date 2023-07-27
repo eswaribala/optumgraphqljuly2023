@@ -26,7 +26,7 @@ public class Address {
     private String city;
     @Column(name="Pincode")
     private long pincode;
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
     @JoinColumn(foreignKey = @ForeignKey(name = "Customer_Id"), name = "Customer_Id")
     private Individual individual;
 
