@@ -31,7 +31,7 @@ public class AddressService {
 
     public Address addAddress(Address address,long customerId){
 
-        Individual individual =this.individualRepo.findById(customerId).orElse(null);
+        Individual individual=this.individualRepo.findById(customerId).orElse(null);
         if(individual!=null){
             address.setIndividual(individual);
             return this.addressRepo.save(address);
@@ -60,7 +60,7 @@ public class AddressService {
     //update
 
     public Address updateAddress(Address address,long customerId){
-        Individual individual=this.individualRepo.findById(customerId).orElse(null);
+      Individual individual=this.individualRepo.findById(customerId).orElse(null);
         if(individual!=null){
             address.setIndividual(individual);
             return this.addressRepo.save(address);

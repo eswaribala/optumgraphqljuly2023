@@ -28,6 +28,6 @@ input AddressInput {
     streetName: String
     city:String
     pincode: Long
-    customer: IndividualInput
+
 }
 

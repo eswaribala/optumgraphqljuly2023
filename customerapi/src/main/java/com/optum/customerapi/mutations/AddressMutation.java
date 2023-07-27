@@ -22,7 +22,7 @@ public class AddressMutation implements GraphQLMutationResolver {
                 .doorNo(addressInput.getDoorNo())
                 .streetName(addressInput.getStreetName())
                 .pincode(addressInput.getPincode())
-                .individual(addressInput.getIndividual())
+
                 .build();
 
        return this.addressService.addAddress(address,customerId);
@@ -35,7 +35,7 @@ public class AddressMutation implements GraphQLMutationResolver {
                 .doorNo(addressInput.getDoorNo())
                 .streetName(addressInput.getStreetName())
                 .pincode(addressInput.getPincode())
-                .individual(addressInput.getIndividual())
+
                 .build();
 
         return this.addressService.updateAddress(address,customerId);

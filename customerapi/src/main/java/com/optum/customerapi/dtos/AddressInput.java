@@ -1,7 +1,6 @@
 package com.optum.customerapi.dtos;
 
 import com.optum.customerapi.models.Customer;
-import com.optum.customerapi.models.Individual;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,5 +16,5 @@ public class AddressInput {
     private String streetName;
     private String city;
     private long pincode;
-    private Individual individual;
+    private Customer customer;
 }
