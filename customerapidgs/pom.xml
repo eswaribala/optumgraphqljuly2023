@@ -54,12 +54,12 @@
         </dependency>
 
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.antlr</groupId>
             <artifactId>antlr4-runtime</artifactId>
             <version>4.7.1</version>
             <scope>compile</scope>
-        </dependency>
+        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/org.projectreactor/reactor-core -->
         <dependency>
