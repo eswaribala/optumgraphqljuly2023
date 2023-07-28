@@ -83,7 +83,10 @@
             <artifactId>graphql-dgs-extended-scalars</artifactId>
 
         </dependency>
-
+        <dependency>
+            <groupId>com.netflix.graphql.dgs</groupId>
+            <artifactId>graphql-dgs-spring-boot-micrometer</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

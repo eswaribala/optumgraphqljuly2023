@@ -1,6 +1,7 @@
 package com.optum.customerapidgs.fetchers;
 
 import com.netflix.graphql.dgs.DgsComponent;
+import com.netflix.graphql.dgs.DgsData;
 import com.netflix.graphql.dgs.DgsMutation;
 import com.netflix.graphql.dgs.DgsQuery;
 import com.optum.customerapidgs.dtos.AddressInput;
@@ -9,10 +10,13 @@ import com.optum.customerapidgs.models.Address;
 import com.optum.customerapidgs.models.Customer;
 import com.optum.customerapidgs.repositories.AddressRepo;
 import com.optum.customerapidgs.repositories.CustomerRepo;
+import graphql.schema.DataFetchingEnvironment;
+import org.dataloader.DataLoader;
 import org.jetbrains.annotations.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 @DgsComponent
 public class AddressFetcher {
@@ -41,18 +45,24 @@ public class AddressFetcher {
 
 @DgsMutation
     public Address  addAddress(AddressInput addressInput, long customerId){
-    return getAddress(addressInput);
+    return getAddress(addressInput,customerId);
 
 }
-
+   @DgsMutation
     public Address updateAddress(long customerId, AddressInput addressInput){
-        return getAddress(addressInput);
+        return getAddress(addressInput,customerId);
 
     }
 
+    /*@DgsData(parentType = "Address", field = "customer")
+    public CompletableFuture<Customer> account(DataFetchingEnvironment dfe) {
+        DataLoader<String,Customer> dataLoader = dfe.getDataLoader("customers");
+        Address address = dfe.getSource();
+        return dataLoader.load(address.getCustomer().getCustomerId());
+    }*/
     @Nullable
-    private Address getAddress(AddressInput addressInput) {
-        Customer customer=this.customerRepo.findById(addressInput.getCustomer().getCustomerId()).orElse(null);
+    private Address getAddress(AddressInput addressInput,long customerId) {
+        Customer customer=this.customerRepo.findById(customerId).orElse(null);
 
         if(customer!=null) {
             Address address = Address.builder()
