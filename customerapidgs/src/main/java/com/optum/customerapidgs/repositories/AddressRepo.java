@@ -9,8 +9,7 @@ import java.util.List;
 
 public interface AddressRepo extends JpaRepository<Address,Long> {
 
-    @Query("Select a from Address a where a.individual.customerId=:customerId")
-    public List<Address> findByIndividualCustomerId(@Param("customerId") long customerId);
-    @Query("Select a from Address a where a.corporate.customerId=:customerId")
-    public List<Address> findByCorporateCustomerId(@Param("customerId") long customerId);
+    @Query("Select a from Address a where a.customer.customerId=:customerId")
+    public List<Address> findByCustomerId(@Param("customerId") long customerId);
+
 }
