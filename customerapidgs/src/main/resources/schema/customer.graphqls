@@ -4,8 +4,8 @@ schema {
     #subscription: Subscription
 }
 
-scalar  Date
-scalar Long
+#scalar  Date
+#scalar Long
 #interface Customer{
 #    customerId: Long
 #    name: FullName
@@ -32,6 +32,8 @@ type Customer {
 
 
 }
+
+scalar Long
 
 input CustomerInput{
     name: FullNameInput
