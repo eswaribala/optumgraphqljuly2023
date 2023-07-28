@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="Customer")
@@ -29,4 +30,8 @@ public class Customer {
     private String email;
     @Column(name="Password")
     private String password;
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "customer")
+    //@JsonIgnore
+    private List<Address> addresses;
 }
