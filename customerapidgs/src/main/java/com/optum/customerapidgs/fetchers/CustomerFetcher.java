@@ -72,6 +72,7 @@ public class CustomerFetcher {
                        .doorNo(addressInput.getDoorNo())
                        .streetName(addressInput.getStreetName())
                        .pincode(addressInput.getPincode())
+                       .customer(customer)
                        .build();
                this.addressRepo.save(address);
            }
