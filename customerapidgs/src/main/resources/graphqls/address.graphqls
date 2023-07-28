@@ -1,0 +1,36 @@
+type Address {
+   addressId:Long
+   doorNo: String
+    streetName: String
+    city:String
+    pincode: Long
+    individual: Individual
+    corporate: Corporate
+}
+
+
+extend type Query{
+    findAllAddresses:[Address]
+    findAddressByIndividualCustomerId(customerId:Long):[Address]
+    findAddressByCorporateCustomerId(customerId:Long):[Address]
+}
+
+extend type Mutation {
+
+    addIndividualAddress(addressInput:AddressInput,customerId:Long):Address
+    addCorporateAddress(addressInput:AddressInput,customerId:Long):Address
+    updateIndividualAddress(customerId:Long, addressInput:AddressInput): Address
+    updateCorporateAddress(customerId:Long, addressInput:AddressInput): Address
+    deleteAddress(addressId:Long):Boolean
+
+}
+
+input AddressInput {
+    addressId:Long
+    doorNo: String
+    streetName: String
+    city:String
+    pincode: Long
+
+}
+

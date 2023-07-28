@@ -1,0 +1,11 @@
+type Subscription{
+    transactions: [TransactionVO]
+}
+
+type TransactionVO{
+    transactionId: Long
+    amount: Long
+    timeStamp: String
+    sender: String
+    receiver: String
+}
