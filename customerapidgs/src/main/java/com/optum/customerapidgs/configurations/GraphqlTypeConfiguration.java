@@ -1,5 +1,5 @@
 package com.optum.customerapidgs.configurations;
-
+/*
 import graphql.scalars.ExtendedScalars;
 import graphql.schema.GraphQLScalarType;
 import org.springframework.context.annotation.Bean;
@@ -18,3 +18,4 @@ public class GraphqlTypeConfiguration {
         return ExtendedScalars.GraphQLLong;
     }
 }
+*/
