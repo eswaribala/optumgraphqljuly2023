@@ -2,6 +2,7 @@ package com.optum.customerapidgs.fetchers;
 
 import com.netflix.graphql.dgs.DgsComponent;
 import com.netflix.graphql.dgs.DgsQuery;
+import com.optum.customerapidgs.exceptions.NoDataFoundError;
 import com.optum.customerapidgs.models.Individual;
 import com.optum.customerapidgs.repositories.IndividualRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,11 @@ public class IndividualFetcher {
     @DgsQuery
     public Individual findIndividualById(long customerId){
 
-        return this.individualRepo.findById(customerId).orElse(null);
+        Individual individual=this.individualRepo.findById(customerId).orElse(null);
+        if (individual==null)
+            throw new NoDataFoundError("Data Not Found","10001");
+        else
+            return individual;
     }
 }
 
