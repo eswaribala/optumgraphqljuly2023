@@ -1,7 +1,7 @@
 schema {
     query: Query
     mutation:  Mutation
-    subscription: Subscription
+    #subscription: Subscription
 }
 
 scalar  Date
@@ -55,9 +55,9 @@ enum Gender{
 type Query{
     findAllIndividuals:[Individual]
     findIndividualById(customerId:Long):Individual
-    findIndividualByContactNo(contactNo:Long):[Individual]
-    findIndividualByFirstName(firstName:String):[Individual]
-    findIndividualWithFilter(individualFilter:IndividualFilter):[Individual]
+    #findIndividualByContactNo(contactNo:Long):[Individual]
+    #findIndividualByFirstName(firstName:String):[Individual]
+    #findIndividualWithFilter(individualFilter:IndividualFilter):[Individual]
 
 }
 
