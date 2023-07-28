@@ -23,6 +23,5 @@ public class CustomerInput {
    private String password;
    private List<AddressInput> addresses;
 
-   private Gender gender;
    private LocalDate dob;
 }
