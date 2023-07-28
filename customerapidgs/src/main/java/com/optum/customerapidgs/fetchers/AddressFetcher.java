@@ -1,7 +1,9 @@
 package com.optum.customerapidgs.fetchers;
 
 import com.netflix.graphql.dgs.DgsComponent;
+import com.netflix.graphql.dgs.DgsMutation;
 import com.netflix.graphql.dgs.DgsQuery;
+import com.optum.customerapidgs.dtos.AddressInput;
 import com.optum.customerapidgs.exceptions.NoDataFoundError;
 import com.optum.customerapidgs.models.Address;
 import com.optum.customerapidgs.repositories.AddressRepo;
@@ -29,6 +31,26 @@ public class AddressFetcher {
             return addresses;
 
 
+    }
+
+
+    public Address  addAddress(AddressInput addressInput, long customerId){
+
+    }
+
+    public Address updateAddress(long customerId, AddressInput addressInput){
+
+
+    }
+
+    @DgsMutation
+    public boolean deleteAddress(long addressId){
+        boolean status=false;
+        this.addressRepo.deleteById(addressId);
+        Address address=this.addressRepo.findById(addressId).orElse(null);
+        if(address==null)
+          status=true;
+        return status;
     }
 
 }
