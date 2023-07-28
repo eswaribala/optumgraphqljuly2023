@@ -42,4 +42,43 @@ query{
   
 }
 =======================================================
-
+query{
+  findIndividualWithFilter(individualFilter:{
+    
+   or:[ 
+    {
+      email:{
+      operator:"eq",
+      value:"Parameswaribala@gmail.com"
+    },
+    customerId:{
+      operator:"lt",
+      value:"3"
+    }
+    },
+    
+     {
+     email:{
+      operator:"eq",
+      value:"nishanthi@gmail.com"
+    },
+    customerId:{
+      operator:"gt",
+      value:"3"
+    }
+    }
+  ]
+    
+    
+     
+  },
+   
+  
+  
+  ){
+   name{
+    firstName
+  }
+  }
+  
+}
