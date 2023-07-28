@@ -10,8 +10,8 @@ type Address {
 
 extend type Query{
     findAllAddresses:[Address]
-    findAddressByIndividualCustomerId(customerId:Long):[Address]
-    findAddressByCorporateCustomerId(customerId:Long):[Address]
+    findAddressByCustomerId(customerId:Long):[Address]
+
 }
 
 extend type Mutation {
