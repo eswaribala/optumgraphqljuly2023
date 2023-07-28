@@ -4,8 +4,7 @@ type Address {
     streetName: String
     city:String
     pincode: Long
-    individual: Individual
-    corporate: Corporate
+    customer:Customer
 }
 
 
@@ -17,10 +16,10 @@ extend type Query{
 
 extend type Mutation {
 
-    addIndividualAddress(addressInput:AddressInput,customerId:Long):Address
-    addCorporateAddress(addressInput:AddressInput,customerId:Long):Address
-    updateIndividualAddress(customerId:Long, addressInput:AddressInput): Address
-    updateCorporateAddress(customerId:Long, addressInput:AddressInput): Address
+    addAddress(addressInput:AddressInput,customerId:Long):Address
+
+    updateAddress(customerId:Long, addressInput:AddressInput): Address
+
     deleteAddress(addressId:Long):Boolean
 
 }
@@ -31,6 +30,7 @@ input AddressInput {
     streetName: String
     city:String
     pincode: Long
+    customer:CustomerInput
 
 }
 

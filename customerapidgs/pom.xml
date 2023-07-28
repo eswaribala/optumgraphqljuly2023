@@ -108,7 +108,7 @@
                 </executions>
                 <configuration>
                     <schemaPaths>
-                        <param>src/main/resources/schema/individual.graphqls</param>
+                        <param>src/main/resources/schema/customer.graphqls</param>
                     </schemaPaths>
                     <packageName>${project.groupId}.generated</packageName>
                 </configuration>

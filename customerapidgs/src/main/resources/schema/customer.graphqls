@@ -1,3 +1,66 @@
-extend type Query{
-    searchCustomer(customerId: Long):Customer
+schema {
+    query: Query
+    mutation:  Mutation
+    #subscription: Subscription
+}
+
+scalar  Date
+scalar Long
+#interface Customer{
+#    customerId: Long
+#    name: FullName
+#    email: String
+#    password: String
+#    contactNo: Long
+#}
+
+#union Customer=Individual|Corporate
+
+type FullName{
+    firstName: String
+    lastName: String
+    middleName: String
+}
+
+type Customer {
+    customerId: Long
+    name: FullName
+    email: String
+    password: String
+    contactNo: Long
+    addresses: [Address]
+
+
+}
+
+input CustomerInput{
+    name: FullNameInput
+    email: String
+    password: String
+    contactNo: Long
+    addresses: [AddressInput]
+
+}
+
+input  FullNameInput{
+    firstName: String
+    lastName: String
+    middleName: String
+}
+
+
+type Query{
+    findAllCustomers:[Customer]
+    findCustomerById(customerId:Long):Customer
+
+
+}
+
+
+type Mutation {
+
+    addCustomer(customerInput:CustomerInput):Customer
+    updateCustomer(customerId:Long, email:String): Customer
+    deleteCustomer(customerId:Long):Boolean
+
 }
