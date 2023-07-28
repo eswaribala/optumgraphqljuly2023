@@ -21,12 +21,14 @@ public class TransactionSubscriptionResolver implements GraphQLSubscriptionResol
     private TransactionConsumer transactionConsumer;
     private TransactionRepo transactionRepo;
 
-    public Publisher<TransactionVO> transactions(long transactionId){
+    public Publisher<List<TransactionVO>> transactions(){
 
-
+  if(transactionConsumer.getTransactions().size()>0)
         return Flux.interval(Duration.ofSeconds(5))
 
-        .map(num -> transactionRepo.findById(transactionId).orElse(null));
+        .map(num -> transactionConsumer.getTransactions());
+  else
+      return null;
 
     }
 

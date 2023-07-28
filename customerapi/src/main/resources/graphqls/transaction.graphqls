@@ -1,5 +1,5 @@
 type Subscription{
-    transactions(transactionId: Long): TransactionVO
+    transactions: [TransactionVO]
 }
 
 type TransactionVO{
